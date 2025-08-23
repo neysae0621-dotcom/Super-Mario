@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="description" content="超级马里奥Lite - 网页平台跳跃游戏，支持键盘和触摸操作。" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#0d0f15" />
+    <title>超级马里奥Lite - 游戏</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="page-game">
+    <!-- 滚动指示器 -->
+    <div class="scroll-indicator"></div>
+    
+    <!-- 悬浮粒子效果 -->
+    <div class="floating-particles"></div>
+    
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <a href="index.html" class="logo">超级马里奥Lite</a>
+        </div>
+        <nav class="site-nav">
+          <a class="nav-link" href="index.html">首页</a>
+          <a class="nav-link active" href="game.html">开始游戏</a>
+          <a class="nav-link" href="contact.html">联系我们</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="game-toolbar">
+            <div class="controls">
+              <span class="desktop-only">←/→ 或 A/D 移动</span>
+              <span class="desktop-only">↑/W/空格 跳跃</span>
+              <span class="desktop-only">P 暂停</span>
+              <span class="desktop-only">R 重开</span>
+              <span class="mobile-only">使用屏幕下方按钮控制</span>
+            </div>
+            <div class="actions">
+              <label class="level-select">关卡：
+                <select id="level-select">
+                  <option value="0">1-1</option>
+                  <option value="1">1-2</option>
+                  <option value="2">1-3</option>
+                  <option value="3">1-4</option>
+                  <option value="4">1-5</option>
+                  <option value="5">1-6</option>
+                  <option value="6">1-7</option>
+                  <option value="7">1-8</option>
+                  <option value="8">2-1</option>
+                  <option value="9">2-2</option>
+                  <option value="10">2-3</option>
+                  <option value="11">2-4</option>
+                  <option value="12">2-5</option>
+                  <option value="13">2-6</option>
+                  <option value="14">2-7</option>
+                  <option value="15">2-8</option>
+                  <option value="16">3-1</option>
+                  <option value="17">3-2</option>
+                  <option value="18">3-3</option>
+                  <option value="19">3-4</option>
+                  <option value="20">3-5</option>
+                  <option value="21">3-6</option>
+                  <option value="22">3-7</option>
+                  <option value="23">3-8</option>
+                  <option value="24">4-1</option>
+                  <option value="25">4-2</option>
+                  <option value="26">4-3</option>
+                  <option value="27">4-4</option>
+                  <option value="28">4-5</option>
+                  <option value="29">4-6</option>
+                  <option value="30">4-7</option>
+                  <option value="31">4-8</option>
+                  <option value="32">5-1</option>
+                  <option value="33">5-2</option>
+                  <option value="34">5-3</option>
+                  <option value="35">5-4</option>
+                  <option value="36">5-5</option>
+                  <option value="37">5-6</option>
+                  <option value="38">5-7</option>
+                  <option value="39">5-8</option>
+                </select>
+              </label>
+              <button id="btn-audio" class="btn">音效: 开</button>
+              <button id="btn-music" class="btn">音乐: 开</button>
+              <button id="btn-audio-settings" class="btn">🎵 音频设置</button>
+              <button id="btn-pause" class="btn">暂停</button>
+              <button id="btn-restart" class="btn btn-primary">重新开始</button>
+            </div>
+          </div>
+          <div class="canvas-wrap">
+            <canvas id="game" width="960" height="540" aria-label="游戏画布"></canvas>
+          </div>
+          
+          <!-- 音频设置面板 -->
+          <div id="audio-settings-panel" class="audio-settings-panel" style="display: none;">
+            <div class="panel-content">
+              <h3>🎵 音频设置</h3>
+              
+              <div class="setting-group">
+                <label for="music-volume-slider">🎼 音乐音量:</label>
+                <div class="volume-control">
+                  <input type="range" id="music-volume-slider" min="0" max="100" value="70" class="volume-slider">
+                  <span id="music-volume-display">70%</span>
+                </div>
+              </div>
+              
+              <div class="setting-group">
+                <label for="sfx-volume-slider">🔊 音效音量:</label>
+                <div class="volume-control">
+                  <input type="range" id="sfx-volume-slider" min="0" max="100" value="80" class="volume-slider">
+                  <span id="sfx-volume-display">80%</span>
+                </div>
+              </div>
+              
+              <div class="setting-group">
+                <label for="music-track-select">🎹 音乐轨道:</label>
+                <select id="music-track-select" class="track-select">
+                  <option value="main">🌱 草原主题</option>
+                  <option value="underground">🏔️ 地下主题</option>
+                  <option value="sky">☁️ 天空主题</option>
+                  <option value="castle">🏰 城堡主题</option>
+                  <option value="boss">⚔️ Boss主题</option>
+                </select>
+              </div>
+              
+              <div class="setting-group">
+                <label>🎚️ 快捷开关:</label>
+                <div class="toggle-buttons">
+                  <button id="toggle-all-audio" class="toggle-btn">🔇 静音所有</button>
+                  <button id="test-audio" class="toggle-btn">🔊 测试音效</button>
+                  <button id="toggle-haptic" class="toggle-btn">📳 触觉反馈</button>
+                </div>
+              </div>
+              
+              <div class="panel-actions">
+                <button id="close-audio-settings" class="btn btn-primary">关闭</button>
+                <button id="reset-audio-settings" class="btn">重置默认</button>
+              </div>
+            </div>
+          </div>
+          <div id="clear-modal" class="modal" aria-hidden="true">
+            <div class="modal-content">
+              <h3>关卡完成！</h3>
+              <p id="clear-stats">分数：0｜金币：0</p>
+              <div class="modal-actions">
+                <button id="btn-next" class="btn btn-primary">下一关</button>
+                <button id="btn-retry2" class="btn">重玩本关</button>
+              </div>
+            </div>
+          </div>
+          <!-- 移动端游戏提示 -->
+          <div id="mobile-tips" class="mobile-tips" style="display: none;">
+            <div class="tips-content">
+              <h4>📱 移动端游戏提示</h4>
+              <ul>
+                <li>🎮 <strong>触屏按钮</strong>：使用下方按钮控制角色</li>
+                <li>👆 <strong>手势操作</strong>：在游戏区域滑动或点击</li>
+                <li>↔️ <strong>左右滑动</strong>：角色移动</li>
+                <li>⬆️ <strong>上滑/点击</strong>：跳跃</li>
+                <li>⬇️ <strong>下滑</strong>：快速下降（空中时）</li>
+                <li>📳 <strong>触觉反馈</strong>：在音频设置中开启</li>
+                <li>📐 <strong>横屏游戏</strong>：获得最佳体验</li>
+              </ul>
+              <button id="close-mobile-tips" class="btn btn-primary">知道了</button>
+            </div>
+          </div>
+          
+          <div class="touch-controls" aria-hidden="true">
+            <div class="tc-controls-left">
+              <button class="tc-btn left" id="tc-left" aria-label="向左移动"></button>
+              <button class="tc-btn right" id="tc-right" aria-label="向右移动"></button>
+            </div>
+            <div class="tc-controls-right">
+              <button class="tc-btn pause" id="tc-pause" aria-label="暂停游戏">⏸</button>
+              <button class="tc-btn jump" id="tc-jump" aria-label="跳跃"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section monster-guide">
+        <div class="container">
+          <h2 class="section-title">🎮 怪物图鉴</h2>
+          <p class="section-subtitle">了解游戏中的各种敌人，制定最佳策略！</p>
+          
+          <div class="monster-grid">
+            <div class="monster-card">
+              <div class="monster-icon" style="background: linear-gradient(45deg, #a1887f, #5d4037);">👾</div>
+              <h3>普通怪物 (Goomba)</h3>
+              <p>最基础的敌人，可以踩踏击败。移动速度慢，威胁度低。</p>
+              <span class="difficulty easy">★☆☆</span>
+            </div>
+
+            <div class="monster-card">
+              <div class="monster-icon" style="background: linear-gradient(45deg, #ff5722, #d32f2f);">🦔</div>
+              <h3>带刺怪物 (Spiny)</h3>
+              <p>身上带刺，不能踩踏！碰到即会受伤，需要小心绕过。</p>
+              <span class="difficulty medium">★★☆</span>
+            </div>
+
+            <div class="monster-card">
+              <div class="monster-icon" style="background: linear-gradient(45deg, #64b5f6, #2196f3);">🦅</div>
+              <h3>飞行怪物 (Flying)</h3>
+              <p>在空中飞行，上下移动。可以踩踏击败，但需要精准跳跃。</p>
+              <span class="difficulty medium">★★☆</span>
+            </div>
+
+            <div class="monster-card">
+              <div class="monster-icon" style="background: linear-gradient(45deg, #81c784, #4caf50);">🦘</div>
+              <h3>弹跳怪物 (Bouncing)</h3>
+              <p>会定期跳跃，移动模式不规律。可踩踏击败。</p>
+              <span class="difficulty medium">★★☆</span>
+            </div>
+
+            <div class="monster-card">
+              <div class="monster-icon" style="background: linear-gradient(45deg, #3f51b5, #1a237e);">🛡️</div>
+              <h3>强化怪物 (Tough)</h3>
+              <p>装甲战士，需要踩踏2次才能击败。第一次击中会眩晕。</p>
+              <span class="difficulty hard">★★★</span>
+            </div>
+
+            <div class="monster-card">
+              <div class="monster-icon" style="background: linear-gradient(45deg, #e1bee7, #9c27b0);">👻</div>
+              <h3>幽灵怪物 (Ghost)</h3>
+              <p>半透明幽灵，会穿墙追踪玩家。不能踩踏，只能躲避！</p>
+              <span class="difficulty hard">★★★</span>
+            </div>
+
+            <div class="monster-card">
+              <div class="monster-icon" style="background: linear-gradient(45deg, #607d8b, #37474f);">🔫</div>
+              <h3>射击怪物 (Shooter)</h3>
+              <p>机械敌人，会朝玩家发射致命子弹。可踩踏击败，但被子弹击中会扣1条生命！</p>
+              <span class="difficulty hard">★★★</span>
+            </div>
+
+            <div class="monster-card">
+              <div class="monster-icon" style="background: linear-gradient(45deg, #ff5722, #d32f2f); box-shadow: 0 0 15px #ff1744;">⚡</div>
+              <h3>尖刺怪物 (Spiked)</h3>
+              <p>全身带刺的危险敌人，完全无敌！只能躲避，千万不要碰到！</p>
+              <span class="difficulty extreme">★★★★</span>
+            </div>
+
+            <div class="monster-card">
+              <div class="monster-icon" style="background: linear-gradient(45deg, #4caf50, #2e7d32);">🦘</div>
+              <h3>跳跃怪物 (Jumper)</h3>
+              <p>超级跳跃能力，移动速度快。会高高跳起，可踩踏击败。</p>
+              <span class="difficulty hard">★★★</span>
+            </div>
+
+            <div class="monster-card">
+              <div class="monster-icon" style="background: linear-gradient(45deg, #ff9800, #f57c00);">🐜</div>
+              <h3>迷你怪物 (Mini)</h3>
+              <p>体型很小但速度极快，通常成群出现。可踩踏击败。</p>
+              <span class="difficulty medium">★★☆</span>
+            </div>
+          </div>
+
+          <div class="strategy-tips">
+            <h3>🎯 策略提示</h3>
+            <ul>
+              <li><strong>平台生成：</strong>随着关卡进度，平台上也会随机生成怪物，增加挑战性</li>
+              <li><strong>难度递增：</strong>后期关卡会出现更多危险的怪物类型</li>
+              <li><strong>子弹伤害：</strong>射击怪物的子弹会直接扣除1条生命，击中后获得2秒无敌时间</li>
+              <li><strong>无敌保护：</strong>受到伤害后的无敌时间内，所有敌人攻击都无效</li>
+              <li><strong>连击奖励：</strong>连续踩踏敌人可获得连击分数奖励</li>
+              <li><strong>无敌怪物：</strong>遇到无敌怪物时，耐心等待或寻找绕路方案</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© 2025 超级马里奥Lite | 网页制作者保留所有权利</p>
+      </div>
+    </footer>
+
+    <script src="js/game.js"></script>
+  </body>
+  </html>
+
+

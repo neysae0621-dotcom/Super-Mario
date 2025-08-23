@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="联系开发者与常见问题 - 超级马里奥Lite网页小游戏。" />
+    <title>超级马里奥Lite - 联系我们 / 遇到问题</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="page-contact">
+    <!-- 滚动指示器 -->
+    <div class="scroll-indicator"></div>
+    
+    <!-- 悬浮粒子效果 -->
+    <div class="floating-particles"></div>
+    
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <a href="index.html" class="logo">超级马里奥Lite</a>
+        </div>
+        <nav class="site-nav">
+          <a class="nav-link" href="index.html">首页</a>
+          <a class="nav-link" href="game.html">开始游戏</a>
+          <a class="nav-link active" href="contact.html">联系我们</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="contact-hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="contact-title">💬 联系我们</h1>
+            <p class="contact-subtitle">感谢你对《超级马里奥Lite》的关注！我们非常重视每一位玩家的反馈和建议。</p>
+            <div class="contact-stats">
+              <div class="stat-item">
+                <span class="stat-number">24h</span>
+                <span class="stat-label">平均响应时间</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">95%</span>
+                <span class="stat-label">用户满意度</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">99+</span>
+                <span class="stat-label">反馈已处理</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Methods Section -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>📞 联系方式</h2>
+            <p>选择最适合你的联系方式，我们会尽快回复</p>
+          </div>
+            
+            <div class="contact-methods">
+              <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div class="contact-info">
+                  <h3>邮件反馈</h3>
+                  <p>发送详细的问题描述或建议到我们的邮箱</p>
+                  <p class="email-addresses">
+                    <a href="mailto:Neysae@126.com" class="email-link">Neysae@126.com</a><br>
+                    <a href="mailto:ubffxqj@163.com" class="email-link">ubffxqj@163.com</a>
+                  </p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">🐛</div>
+                <div class="contact-info">
+                  <h3>Bug 报告</h3>
+                  <p>遇到游戏问题？请详细描述复现步骤</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">💡</div>
+                <div class="contact-info">
+                  <h3>功能建议</h3>
+                  <p>有好的创意想法？我们期待听到你的声音</p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Contact Form Section -->
+      <section class="section section-muted">
+        <div class="container">
+          <div class="section-header">
+            <h2>📝 发送消息</h2>
+            <p>有问题或建议？直接通过表单联系我们</p>
+          </div>
+          
+          <div class="form-container">
+            <form class="contact-form" onsubmit="handleSubmit(event);">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">
+                    👤 昵称（可选）
+                    <input type="text" id="name" name="name" placeholder="你的昵称或游戏ID" />
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label for="email">
+                    📧 邮箱（用于回复）
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required />
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="category">
+                  📂 反馈类型
+                  <select id="category" name="category" required>
+                    <option value="">请选择反馈类型</option>
+                    <option value="bug">🐛 Bug 报告</option>
+                    <option value="suggestion">💡 功能建议</option>
+                    <option value="feedback">📝 游戏体验反馈</option>
+                    <option value="other">❓ 其他问题</option>
+                  </select>
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="message">
+                  💭 详细内容
+                  <textarea id="message" name="message" rows="6" placeholder="请详细描述你的问题或建议..." required></textarea>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="subscribe" name="subscribe" />
+                  <span class="checkmark"></span>
+                  📬 订阅游戏更新通知（可选）
+                </label>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">🚀 发送反馈</button>
+                <p class="form-note">📧 我们会在24小时内回复您的邮箱</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="section faq-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>❓ 常见问题解答</h2>
+            <p>快速找到你需要的答案</p>
+          </div>
+          
+          <div class="faq-container">
+            
+            <div class="faq-category">
+              <h3>🎮 游戏操作问题</h3>
+              <details open>
+                <summary>🔧 按键没有反应怎么办？</summary>
+                <div class="faq-content">
+                  <p><strong>解决方案：</strong></p>
+                  <ol>
+                    <li>点击游戏画布区域，确保游戏获得键盘焦点</li>
+                    <li>检查是否使用了支持的浏览器（推荐 Chrome、Edge、Firefox 最新版）</li>
+                    <li>确认没有其他程序占用键盘输入</li>
+                    <li>尝试刷新页面重新开始</li>
+                  </ol>
+                </div>
+              </details>
+              
+              <details>
+                <summary>📱 手机上怎么玩？</summary>
+                <div class="faq-content">
+                  <p>游戏支持移动设备！</p>
+                  <ul>
+                    <li><strong>触屏控制：</strong>使用屏幕下方的虚拟按钮</li>
+                    <li><strong>最佳体验：</strong>横屏游玩 + 外接蓝牙键盘</li>
+                    <li><strong>注意：</strong>部分复杂操作在手机上可能有延迟</li>
+                  </ul>
+                </div>
+              </details>
+              
+              <details>
+                <summary>🎯 双重跳跃怎么使用？</summary>
+                <div class="faq-content">
+                  <p>在空中时再次按跳跃键即可执行二段跳！</p>
+                  <p>💡 <strong>小技巧：</strong>二段跳有独特的音效，善用它可以到达更高的平台。</p>
+                </div>
+              </details>
+              
+              <details>
+                <summary>❤️ 生命系统是怎么工作的？</summary>
+                <div class="faq-content">
+                  <p><strong>生命机制：</strong></p>
+                  <ul>
+                    <li>🔴 初始拥有3条生命</li>
+                    <li>⚡ 碰触敌人扣除1条生命，获得2秒无敌时间</li>
+                    <li>🟢 拾取绿色加生命蘑菇恢复1格生命</li>
+                    <li>✨ 生命满时拾取加生命蘑菇获得2秒无敌状态</li>
+                    <li>🕳️ 掉入虚空扣除1条生命，重置到安全位置</li>
+                    <li>💀 所有生命耗尽时游戏结束，需要重新开始</li>
+                  </ul>
+                  <p>💡 <strong>策略提示：</strong>合理利用无敌时间穿越危险区域！</p>
+                </div>
+              </details>
+              
+              <details>
+                <summary>🍄 超级马里奥Lite状态有什么作用？</summary>
+                <div class="faq-content">
+                  <p><strong>蘑菇道具效果：</strong></p>
+                  <ul>
+                    <li>🍄 吃蘑菇后变成超级马里奥Lite（显示橙色“超级马里奥Lite”状态）</li>
+                    <li>🛡️ 巨大化状态下可以抵消一次敌人伤害</li>
+                    <li>📏 被敌人碰触后变回正常大小，不扣生命</li>
+                    <li>⭐ 变小后获得2秒无敌时间保护</li>
+                    <li>🎯 这是经典马里奥游戏的核心机制</li>
+                  </ul>
+                  <p>💡 <strong>战术建议：</strong>尽量保持超级状态，它是你的护身符！</p>
+                </div>
+              </details>
+              
+              <details>
+                <summary>🛡️ 坚硬敌人是什么？如何击败？</summary>
+                <div class="faq-content">
+                  <p><strong>坚硬敌人特征：</strong></p>
+                  <ul>
+                    <li>🔵 深蓝色护甲外观，橙色机械眼睛</li>
+                    <li>💪 需要踩踏2次才能完全击败</li>
+                    <li>⚡ 每次受伤后有0.5秒无敌时间</li>
+                    <li>📊 头顶显示受伤次数指示器</li>
+                    <li>🔴 受伤时会闪烁并播放受伤音效</li>
+                    <li>💀 第2次踩踏时播放击败音效和金色粒子</li>
+                  </ul>
+                  <p>💡 <strong>击败策略：</strong>连续跳跃攻击，利用每次踩踏的反弹效果！</p>
+                </div>
+              </details>
+            </div>
+            
+            <div class="faq-category">
+              <h3>⚡ 性能优化</h3>
+              <details>
+                <summary>🐌 游戏卡顿或黑屏？</summary>
+                <div class="faq-content">
+                  <p><strong>尝试以下解决方案：</strong></p>
+                  <ol>
+                    <li>刷新页面重新加载游戏</li>
+                    <li>关闭其他占用资源的浏览器标签</li>
+                    <li>降低浏览器缩放比例（建议100%）</li>
+                    <li>检查电脑性能，关闭不必要的后台程序</li>
+                    <li>尝试关闭音效或音乐来提升性能</li>
+                  </ol>
+                </div>
+              </details>
+              
+              <details>
+                <summary>🔊 没有声音？</summary>
+                <div class="faq-content">
+                  <p>检查以下设置：</p>
+                  <ul>
+                    <li>确认浏览器允许网站播放音频</li>
+                    <li>检查游戏内音效和音乐开关</li>
+                    <li>确认系统音量和浏览器音量设置</li>
+                    <li>有些浏览器需要用户交互后才能播放音频</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+            
+            <div class="faq-category">
+              <h3>🌟 游戏特色</h3>
+              <details>
+                <summary>🏆 如何获得高分？</summary>
+                <div class="faq-content">
+                  <p><strong>高分技巧：</strong></p>
+                  <ul>
+                    <li>🥾 连续踩踏敌人获得连击奖励</li>
+                    <li>⭐ 收集星星获得无敌状态和额外分数</li>
+                    <li>💎 寻找隐藏的宝石获得额外金币</li>
+                    <li>🍄 使用蘑菇增强能力</li>
+                    <li>🎯 完美通关每个关卡</li>
+                  </ul>
+                </div>
+              </details>
+              
+              <details>
+                <summary>💾 游戏进度会保存吗？</summary>
+                <div class="faq-content">
+                  <p>是的！游戏会自动保存：</p>
+                  <ul>
+                    <li>🏅 最高分数记录</li>
+                    <li>🪙 累计金币数量</li>
+                    <li>🗺️ 已解锁的关卡</li>
+                  </ul>
+                  <p><em>数据存储在浏览器本地，清除浏览器数据会丢失进度。</em></p>
+                </div>
+              </details>
+              
+              <details>
+                <summary>🛡️ 什么是需要踩两次的敌人？</summary>
+                <div class="faq-content">
+                  <p><strong>装甲敌人特征：</strong></p>
+                  <ul>
+                    <li>🟣 深蓝紫色装甲外观，顶部有血条显示</li>
+                    <li>⚔️ 第一次踩踏：敌人进入眩晕状态1.5秒（橙色闪烁）</li>
+                    <li>💀 第二次踩踏：彻底消灭敌人</li>
+                    <li>💰 击败奖励：第一次100分，第二次400分</li>
+                    <li>✨ 特殊效果：击中和击杀都有独特的音效和粒子效果</li>
+                  </ul>
+                  <p><em>策略提示：眩晕期间敌人暂停移动，是进行第二次攻击的最佳时机！</em></p>
+                </div>
+              </details>
+              
+              <details>
+                <summary>🍄 道具系统有哪些类型？</summary>
+                <div class="faq-content">
+                  <p><strong>道具种类说明：</strong></p>
+                  <ul>
+                    <li>🔴 红色蘑菇：增大玩家尺寸和速度，提供额外保护</li>
+                    <li>🟢 绿色加生命蘑菇：恢复1格生命，满血时获得2秒无敌</li>
+                    <li>⭐ 无敌星星：获得临时无敌状态，可以撞击敌人</li>
+                    <li>💎 闪亮宝石：高价值收集品，提供大量金币和分数</li>
+                    <li>🪙 金币：基础收集品，每枚增加分数和金币数</li>
+                  </ul>
+                  <p><strong>视觉特效：</strong></p>
+                  <ul>
+                    <li>🎆 拾取道具时有独特的粒子效果</li>
+                    <li>✨ 金币有动态闪烁和浮动效果</li>
+                    <li>💎 宝石有旋转和闪光效果</li>
+                  </ul>
+                  <p><em>收集提示：优先收集稀有道具，它们的效果更加强大！</em></p>
+                </div>
+              </details>
+            </div>
+            
+            <div class="help-contact">
+              <p>💡 没找到答案？<a href="#feedback">点击这里向我们反馈</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© 2025 超级马里奥Lite | 网页制作者保留所有权利</p>
+      </div>
+    </footer>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault();
+        
+        const form = event.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        // 模拟提交延迟
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '🚀 发送中...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+          // 根据反馈类型显示不同的感谢信息
+          let message = '感谢你的反馈！我们会认真处理每一条意见。';
+          
+          switch(data.category) {
+            case 'bug':
+              message = '🐛 Bug 报告已收到！我们的技术团队会尽快修复。';
+              break;
+            case 'suggestion':
+              message = '💡 创意建议已收到！好的想法可能会在未来版本中实现。';
+              break;
+            case 'feedback':
+              message = '📝 体验反馈已收到！你的意见对我们非常宝贵。';
+              break;
+            default:
+              message = '📬 你的留言已收到！我们会在24小时内回复。';
+          }
+          
+          if (data.subscribe) {
+            message += '\\n\\n📬 你已订阅游戏更新通知！';
+          }
+          
+          alert(message);
+          form.reset();
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+          
+          // 更新统计数字
+          updateStats();
+        }, 2000);
+      }
+      
+      function updateStats() {
+        const statNumbers = document.querySelectorAll('.feedback-stats .stat-number');
+        if (statNumbers[0]) {
+          let current = parseInt(statNumbers[0].textContent);
+          statNumbers[0].textContent = current + 1;
+        }
+      }
+      
+      // 表单验证增强
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('.contact-form');
+        const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+        
+        inputs.forEach(input => {
+          input.addEventListener('blur', function() {
+            validateField(this);
+          });
+          
+          input.addEventListener('input', function() {
+            if (this.classList.contains('error')) {
+              validateField(this);
+            }
+          });
+        });
+        
+        function validateField(field) {
+          const isValid = field.checkValidity();
+          field.classList.toggle('error', !isValid);
+          
+          let errorMsg = field.parentNode.querySelector('.error-message');
+          if (!isValid) {
+            if (!errorMsg) {
+              errorMsg = document.createElement('div');
+              errorMsg.className = 'error-message';
+              field.parentNode.appendChild(errorMsg);
+            }
+            
+            if (field.type === 'email') {
+              errorMsg.textContent = '请输入有效的邮箱地址';
+            } else if (field.tagName === 'SELECT') {
+              errorMsg.textContent = '请选择一个选项';
+            } else {
+              errorMsg.textContent = '此字段为必填项';
+            }
+          } else if (errorMsg) {
+            errorMsg.remove();
+          }
+        }
+      });
+
+      // 添加视觉特效 - 与首页相同的代码
+      // 滚动指示器
+      function updateScrollIndicator() {
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        scrollIndicator.style.transform = `scaleX(${scrollPercent / 100})`;
+      }
+
+      // 鼠标跟随光效 - 优化版本
+      let mouseX = 50;
+      let mouseY = 50;
+      let isMouseActive = false;
+      
+      function handleMouseMove(e) {
+        mouseX = (e.clientX / window.innerWidth) * 100;
+        mouseY = (e.clientY / window.innerHeight) * 100;
+        
+        if (!isMouseActive) {
+          isMouseActive = true;
+          document.body.classList.add('mouse-active');
+        }
+        
+        requestAnimationFrame(() => {
+          document.documentElement.style.setProperty('--mouse-x', mouseX + '%');
+          document.documentElement.style.setProperty('--mouse-y', mouseY + '%');
+        });
+      }
+
+      function handleMouseLeave() {
+        isMouseActive = false;
+        document.body.classList.remove('mouse-active');
+      }
+
+      // 创建悬浮粒子 - 优化版本
+      function createParticles() {
+        const particlesContainer = document.querySelector('.floating-particles');
+        const particleCount = 6; // 联系页面粒子更少
+        
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.animationDelay = (Math.random() * 8) + 's';
+          particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+          
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // 初始化特效
+      updateScrollIndicator();
+      createParticles();
+      
+      window.addEventListener('scroll', updateScrollIndicator);
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseleave', handleMouseLeave);
+    </script>
+  </body>
+  </html>
+
+
